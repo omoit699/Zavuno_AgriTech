@@ -1,36 +1,38 @@
-
-import { useState } from 'react'
+import React, { useState } from "react";
 
 export default function ZavunoPlatform() {
-  const [farmerEmail, setFarmerEmail] = useState('')
-  const [farmerPassword, setFarmerPassword] = useState('')
-  const [buyerEmail, setBuyerEmail] = useState('')
-  const [buyerPassword, setBuyerPassword] = useState('')
-  const [transporterEmail, setTransporterEmail] = useState('')
-  const [transporterPassword, setTransporterPassword] = useState('')
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const [amount, setAmount] = useState('')
-  const [mobileMoneyProvider, setMobileMoneyProvider] = useState('MTN Mobile Money')
+  const [farmerEmail, setFarmerEmail] = useState("");
+  const [farmerPassword, setFarmerPassword] = useState("");
+  const [buyerEmail, setBuyerEmail] = useState("");
+  const [buyerPassword, setBuyerPassword] = useState("");
+  const [transporterEmail, setTransporterEmail] = useState("");
+  const [transporterPassword, setTransporterPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [amount, setAmount] = useState("");
+  const [mobileMoneyProvider, setMobileMoneyProvider] =
+    useState("MTN Mobile Money");
 
   const handleFarmerSignIn = () => {
-    alert(`Farmer Sign In - Email: ${farmerEmail}`)
-  }
+    alert(`Farmer Sign In - Email: ${farmerEmail}`);
+  };
 
   const handleBuyerSignIn = () => {
-    alert(`Buyer Sign In - Email: ${buyerEmail}`)
-  }
+    alert(`Buyer Sign In - Email: ${buyerEmail}`);
+  };
 
   const handleTransporterSignIn = () => {
-    alert(`Transporter Sign In - Email: ${transporterEmail}`)
-  }
+    alert(`Transporter Sign In - Email: ${transporterEmail}`);
+  };
 
   const handlePayment = () => {
     if (!phoneNumber || !amount) {
-      alert('Please fill in all payment fields')
-      return
+      alert("Please fill in all payment fields");
+      return;
     }
-    alert(`Payment initiated - Amount: ${amount}, Provider: ${mobileMoneyProvider}`)
-  }
+    alert(
+      `Payment initiated - Amount: ${amount}, Provider: ${mobileMoneyProvider}`,
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
@@ -60,8 +62,8 @@ export default function ZavunoPlatform() {
           </h1>
 
           <p className="mt-6 text-lg max-w-2xl text-gray-200 leading-8">
-            Zavuno connects farmers, buyers, transporters, and investors
-            through trusted technology and mobile money.
+            Zavuno connects farmers, buyers, transporters, and investors through
+            trusted technology and mobile money.
           </p>
         </div>
       </section>
@@ -73,7 +75,6 @@ export default function ZavunoPlatform() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 mt-14">
-
             <div className="bg-green-50 rounded-3xl p-8 shadow-lg">
               <h3 className="text-2xl font-bold text-green-700">
                 Farmer Sign In
@@ -95,7 +96,10 @@ export default function ZavunoPlatform() {
                 className="w-full mt-4 p-4 rounded-xl border"
               />
 
-              <button onClick={handleFarmerSignIn} className="w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-semibold hover:bg-green-800 transition">
+              <button
+                onClick={handleFarmerSignIn}
+                className="w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-semibold hover:bg-green-800 transition"
+              >
                 Sign In as Farmer
               </button>
             </div>
@@ -121,7 +125,10 @@ export default function ZavunoPlatform() {
                 className="w-full mt-4 p-4 rounded-xl border"
               />
 
-              <button onClick={handleBuyerSignIn} className="w-full mt-6 bg-green-800 text-white py-4 rounded-xl font-semibold hover:bg-green-900 transition">
+              <button
+                onClick={handleBuyerSignIn}
+                className="w-full mt-6 bg-green-800 text-white py-4 rounded-xl font-semibold hover:bg-green-900 transition"
+              >
                 Sign In as Buyer
               </button>
             </div>
@@ -130,7 +137,11 @@ export default function ZavunoPlatform() {
               <h3 className="text-2xl font-bold text-cyan-700">
                 Transporter Sign In
               </h3>
-value={transporterEmail}
+
+              <input
+                type="email"
+                placeholder="Transporter Email"
+                value={transporterEmail}
                 onChange={(e) => setTransporterEmail(e.target.value)}
                 className="w-full mt-6 p-4 rounded-xl border"
               />
@@ -143,15 +154,13 @@ value={transporterEmail}
                 className="w-full mt-4 p-4 rounded-xl border"
               />
 
-              <button onClick={handleTransporterSignIn} className="w-full mt-6 bg-cyan-700 text-white py-4 rounded-xl font-semibold hover:bg-cyan-800 transition
-                className="w-full mt-4 p-4 rounded-xl border"
-              />
-
-              <button className="w-full mt-6 bg-cyan-700 text-white py-4 rounded-xl font-semibold">
+              <button
+                onClick={handleTransporterSignIn}
+                className="w-full mt-6 bg-cyan-700 text-white py-4 rounded-xl font-semibold hover:bg-cyan-800 transition"
+              >
                 Sign In as Transporter
               </button>
             </div>
-
           </div>
         </div>
       </section>
@@ -179,7 +188,7 @@ value={transporterEmail}
               className="w-full mt-4 p-4 rounded-xl border"
             />
 
-            <select 
+            <select
               value={mobileMoneyProvider}
               onChange={(e) => setMobileMoneyProvider(e.target.value)}
               className="w-full mt-4 p-4 rounded-xl border"
@@ -188,7 +197,10 @@ value={transporterEmail}
               <option>Airtel Money</option>
             </select>
 
-            <button onClick={handlePayment} className="w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-semibold hover:bg-green-800 transition">
+            <button
+              onClick={handlePayment}
+              className="w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-semibold hover:bg-green-800 transition"
+            >
               Pay Now
             </button>
           </div>
@@ -197,15 +209,9 @@ value={transporterEmail}
 
       <section className="py-20 bg-green-900 text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold">
-            WhatsApp Customer Support
-          </h2>
+          <h2 className="text-4xl font-bold">WhatsApp Customer Support</h2>
 
-          <a
-            href="https://wa.me/256790206354"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://wa.me/256790206354" target="_blank" rel="noreferrer">
             <button className="mt-8 bg-white text-green-900 px-8 py-4 rounded-2xl font-bold">
               Chat on WhatsApp
             </button>
@@ -226,5 +232,5 @@ value={transporterEmail}
         </div>
       </footer>
     </div>
-  )
+  );
 }
