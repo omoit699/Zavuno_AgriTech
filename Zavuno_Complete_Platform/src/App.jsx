@@ -1,5 +1,37 @@
 
+import { useState } from 'react'
+
 export default function ZavunoPlatform() {
+  const [farmerEmail, setFarmerEmail] = useState('')
+  const [farmerPassword, setFarmerPassword] = useState('')
+  const [buyerEmail, setBuyerEmail] = useState('')
+  const [buyerPassword, setBuyerPassword] = useState('')
+  const [transporterEmail, setTransporterEmail] = useState('')
+  const [transporterPassword, setTransporterPassword] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [amount, setAmount] = useState('')
+  const [mobileMoneyProvider, setMobileMoneyProvider] = useState('MTN Mobile Money')
+
+  const handleFarmerSignIn = () => {
+    alert(`Farmer Sign In - Email: ${farmerEmail}`)
+  }
+
+  const handleBuyerSignIn = () => {
+    alert(`Buyer Sign In - Email: ${buyerEmail}`)
+  }
+
+  const handleTransporterSignIn = () => {
+    alert(`Transporter Sign In - Email: ${transporterEmail}`)
+  }
+
+  const handlePayment = () => {
+    if (!phoneNumber || !amount) {
+      alert('Please fill in all payment fields')
+      return
+    }
+    alert(`Payment initiated - Amount: ${amount}, Provider: ${mobileMoneyProvider}`)
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
       <header className="bg-green-800 text-white shadow-lg">
@@ -50,16 +82,20 @@ export default function ZavunoPlatform() {
               <input
                 type="email"
                 placeholder="Farmer Email"
+                value={farmerEmail}
+                onChange={(e) => setFarmerEmail(e.target.value)}
                 className="w-full mt-6 p-4 rounded-xl border"
               />
 
               <input
                 type="password"
                 placeholder="Password"
+                value={farmerPassword}
+                onChange={(e) => setFarmerPassword(e.target.value)}
                 className="w-full mt-4 p-4 rounded-xl border"
               />
 
-              <button className="w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-semibold">
+              <button onClick={handleFarmerSignIn} className="w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-semibold hover:bg-green-800 transition">
                 Sign In as Farmer
               </button>
             </div>
@@ -72,16 +108,20 @@ export default function ZavunoPlatform() {
               <input
                 type="email"
                 placeholder="Buyer Email"
+                value={buyerEmail}
+                onChange={(e) => setBuyerEmail(e.target.value)}
                 className="w-full mt-6 p-4 rounded-xl border"
               />
 
               <input
                 type="password"
                 placeholder="Password"
+                value={buyerPassword}
+                onChange={(e) => setBuyerPassword(e.target.value)}
                 className="w-full mt-4 p-4 rounded-xl border"
               />
 
-              <button className="w-full mt-6 bg-green-800 text-white py-4 rounded-xl font-semibold">
+              <button onClick={handleBuyerSignIn} className="w-full mt-6 bg-green-800 text-white py-4 rounded-xl font-semibold hover:bg-green-900 transition">
                 Sign In as Buyer
               </button>
             </div>
@@ -90,16 +130,20 @@ export default function ZavunoPlatform() {
               <h3 className="text-2xl font-bold text-cyan-700">
                 Transporter Sign In
               </h3>
-
-              <input
-                type="email"
-                placeholder="Transporter Email"
+value={transporterEmail}
+                onChange={(e) => setTransporterEmail(e.target.value)}
                 className="w-full mt-6 p-4 rounded-xl border"
               />
 
               <input
                 type="password"
                 placeholder="Password"
+                value={transporterPassword}
+                onChange={(e) => setTransporterPassword(e.target.value)}
+                className="w-full mt-4 p-4 rounded-xl border"
+              />
+
+              <button onClick={handleTransporterSignIn} className="w-full mt-6 bg-cyan-700 text-white py-4 rounded-xl font-semibold hover:bg-cyan-800 transition
                 className="w-full mt-4 p-4 rounded-xl border"
               />
 
@@ -122,21 +166,29 @@ export default function ZavunoPlatform() {
             <input
               type="text"
               placeholder="Phone Number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               className="w-full mt-4 p-4 rounded-xl border"
             />
 
             <input
               type="number"
               placeholder="Amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
               className="w-full mt-4 p-4 rounded-xl border"
             />
 
-            <select className="w-full mt-4 p-4 rounded-xl border">
+            <select 
+              value={mobileMoneyProvider}
+              onChange={(e) => setMobileMoneyProvider(e.target.value)}
+              className="w-full mt-4 p-4 rounded-xl border"
+            >
               <option>MTN Mobile Money</option>
               <option>Airtel Money</option>
             </select>
 
-            <button className="w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-semibold">
+            <button onClick={handlePayment} className="w-full mt-6 bg-green-700 text-white py-4 rounded-xl font-semibold hover:bg-green-800 transition">
               Pay Now
             </button>
           </div>
