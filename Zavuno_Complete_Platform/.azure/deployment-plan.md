@@ -105,10 +105,10 @@ Zavuno Platform (React SPA)
 
 ## Phase 2: Execution (Pending Approval)
 
-- [ ] Confirm Azure subscription and region
-- [ ] Generate infrastructure (Bicep)
-- [ ] Set up GitHub repository link
-- [ ] Create build pipeline
+- [x] Confirm Azure subscription and region
+- [x] Generate infrastructure (Bicep)
+- [x] Set up GitHub repository link
+- [x] Create build pipeline
 - [ ] Validate deployment
 - [ ] Deploy to Azure
 - [ ] Share public URL
@@ -117,9 +117,17 @@ Zavuno Platform (React SPA)
 
 ## Deployment Details
 
-**Target Azure Region**: (To be confirmed by user)  
+**GitHub Repository**: https://github.com/omoit699/Zavuno_AgriTech  
+**Target Azure Region**: South Africa North  
 **Resource Group**: (Auto-generated)  
-**Static Web Apps Instance**: zavuno-prod
+**Static Web Apps Instance**: zavuno-agri-tech
+
+## Generated Artifacts
+
+- `.github/workflows/azure-static-web-apps.yml`
+- `infra/static-web-app.bicep`
+- `staticwebapp.config.json`
+- `azure.yaml`
 
 ---
 
