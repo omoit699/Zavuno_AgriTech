@@ -1,5 +1,5 @@
 
-# Zavuno Complete Platform
+# Zavuno AgriTech
 
 Features:
 - Farmer Sign In
