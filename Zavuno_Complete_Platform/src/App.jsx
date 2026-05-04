@@ -11,6 +11,10 @@ export default function ZavunoPlatform() {
   const [amount, setAmount] = useState("");
   const [mobileMoneyProvider, setMobileMoneyProvider] =
     useState("MTN Mobile Money");
+  const [location, setLocation] = useState("");
+  const [weatherData, setWeatherData] = useState(null);
+  const [aiQuery, setAiQuery] = useState("");
+  const [aiAdvice, setAiAdvice] = useState("");
 
   const handleFarmerSignIn = () => {
     alert(`Farmer Sign In - Email: ${farmerEmail}`);
@@ -32,6 +36,57 @@ export default function ZavunoPlatform() {
     alert(
       `Payment initiated - Amount: ${amount}, Provider: ${mobileMoneyProvider}`,
     );
+  };
+
+  const handleGetWeather = () => {
+    if (!location.trim()) {
+      alert("Please enter a location");
+      return;
+    }
+    // Simulate weather data
+    const mockWeather = {
+      location: location,
+      temperature: Math.floor(Math.random() * 15) + 20,
+      condition: ["Sunny", "Cloudy", "Rainy"][Math.floor(Math.random() * 3)],
+      humidity: Math.floor(Math.random() * 40) + 50,
+      rainfall: Math.floor(Math.random() * 50) + 10,
+    };
+    setWeatherData(mockWeather);
+  };
+
+  const handleGetAiAdvice = () => {
+    if (!aiQuery.trim()) {
+      alert("Please enter an agricultural question");
+      return;
+    }
+    // Simulate AI agricultural advice
+    const adviceDatabase = {
+      maize:
+        "For maize cultivation: Plant during rainy season, use certified seeds, maintain 75cm spacing, and apply balanced fertilizer (10:10:10) at 3 weeks. Monitor for armyworm pests.",
+      beans:
+        "For beans: Prepare soil with organic matter, plant after rains, provide support trellises, harvest when pods turn brown. Beans fix nitrogen, so rotate crops efficiently.",
+      cassava:
+        "For cassava: Use healthy stem cuttings, plant in ridges, require well-drained soil, minimal fertilizer needed. Harvest after 12-18 months when leaves yellow.",
+      banana:
+        "For banana farming: Space plants 2-3 meters apart, mulch heavily, provide adequate water (70mm/month), control black Sigatoka disease, fertilize monthly.",
+      tomato:
+        "For tomatoes: Use disease-resistant varieties, stagger planting for continuous harvest, stake/cage plants, water consistently, scout for pests weekly.",
+      default:
+        "General agricultural advice: Ensure good soil preparation, use improved crop varieties, practice crop rotation, manage water efficiently, and apply integrated pest management techniques.",
+    };
+
+    const query = aiQuery.toLowerCase();
+    let advice = adviceDatabase.default;
+
+    if (query.includes("maize") || query.includes("corn"))
+      advice = adviceDatabase.maize;
+    else if (query.includes("bean") || query.includes("pulse"))
+      advice = adviceDatabase.beans;
+    else if (query.includes("cassava")) advice = adviceDatabase.cassava;
+    else if (query.includes("banana")) advice = adviceDatabase.banana;
+    else if (query.includes("tomato")) advice = adviceDatabase.tomato;
+
+    setAiAdvice(advice);
   };
 
   return (
@@ -203,6 +258,102 @@ export default function ZavunoPlatform() {
             >
               Pay Now
             </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-blue-800 mb-4">
+            🌤️ Weather Forecast for Farming
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Check weather conditions in your region to plan your farming
+            activities
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-3xl p-10 shadow-lg">
+              <input
+                type="text"
+                placeholder="Enter your location (e.g., Kampala, Jinja)"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="w-full p-4 rounded-xl border-2 border-blue-300"
+              />
+
+              <button
+                onClick={handleGetWeather}
+                className="w-full mt-6 bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition"
+              >
+                Get Weather
+              </button>
+            </div>
+
+            {weatherData && (
+              <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl p-8 shadow-lg text-white">
+                <h3 className="text-2xl font-bold mb-4">
+                  📍 {weatherData.location}
+                </h3>
+                <div className="space-y-3">
+                  <p className="text-lg">
+                    <span className="font-semibold">Temperature:</span>{" "}
+                    {weatherData.temperature}°C
+                  </p>
+                  <p className="text-lg">
+                    <span className="font-semibold">Condition:</span>{" "}
+                    {weatherData.condition}
+                  </p>
+                  <p className="text-lg">
+                    <span className="font-semibold">Humidity:</span>{" "}
+                    {weatherData.humidity}%
+                  </p>
+                  <p className="text-lg">
+                    <span className="font-semibold">Expected Rainfall:</span>{" "}
+                    {weatherData.rainfall}mm
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gradient-to-r from-amber-50 to-orange-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-orange-800 mb-4">
+            🤖 AI Agricultural Advice
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Get expert AI-powered recommendations for your crops. Ask about
+            maize, beans, cassava, banana, tomato, and more!
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-3xl p-10 shadow-lg">
+              <textarea
+                placeholder="Ask your agricultural question... e.g., 'How do I grow maize?' or 'Best practices for tomatoes?'"
+                value={aiQuery}
+                onChange={(e) => setAiQuery(e.target.value)}
+                className="w-full p-4 rounded-xl border-2 border-orange-300 h-32 resize-none"
+              />
+
+              <button
+                onClick={handleGetAiAdvice}
+                className="w-full mt-6 bg-orange-600 text-white py-4 rounded-xl font-semibold hover:bg-orange-700 transition"
+              >
+                Get AI Advice
+              </button>
+            </div>
+
+            {aiAdvice && (
+              <div className="bg-gradient-to-br from-orange-400 to-amber-600 rounded-3xl p-8 shadow-lg text-white">
+                <h3 className="text-2xl font-bold mb-4">
+                  💡 Expert Recommendation
+                </h3>
+                <p className="text-lg leading-relaxed">{aiAdvice}</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
