@@ -5,6 +5,235 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "name": "Launch Edge",
+      "request": "launch",
+      "type": "msedge",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+    {
+      "type": "aws-sam",
+      "request": "direct-invoke",
+      "name": "Invoke Lambda with API Gateway",
+      "invokeTarget": {
+        "target": "api",
+        "templatePath": "Template Location",
+        "logicalId": "Function Logical ID"
+      },
+      "api": {
+        "path": "Path",
+        "httpMethod": "Method",
+        "payload": {
+          "json": {}
+        }
+      }
+    },
+
+    {
       "type": "node",
       "request": "launch",
       "name": "Launch Program",

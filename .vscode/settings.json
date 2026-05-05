@@ -1,0 +1,8 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "chat.agent.maxRequests": 1e36,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "editor.formatOnPaste": true,
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true
+}
