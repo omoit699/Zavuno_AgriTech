@@ -5,6 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
+<<<<<<< HEAD
       "type": "aws-sam",
       "request": "direct-invoke",
       "name": "Invoke Lambda with API Gateway",
@@ -285,6 +286,8 @@
     },
 
     {
+=======
+>>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
