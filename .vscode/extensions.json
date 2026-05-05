@@ -7,6 +7,7 @@
     "ms-edgedevtools.vscode-edge-devtools",
     "ms-vscode.azurecli",
     "ms-azuretools.azure-dev",
-    "cweijan.vscode-database-client2"
+    "cweijan.vscode-database-client2",
+    "thearche.git-lfs-file-locker"
   ]
 }
