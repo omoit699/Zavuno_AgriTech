@@ -15,6 +15,12 @@ export default function ZavunoPlatform() {
   const [weatherData, setWeatherData] = useState(null);
   const [aiQuery, setAiQuery] = useState("");
   const [aiAdvice, setAiAdvice] = useState("");
+  const [produceName, setProduceName] = useState("");
+  const [produceQuantity, setProduceQuantity] = useState("");
+  const [producePrice, setProducePrice] = useState("");
+  const [produceDescription, setProduceDescription] = useState("");
+  const [produceImage, setProduceImage] = useState("");
+  const [produceListings, setProduceListings] = useState([]);
 
   const handleFarmerSignIn = () => {
     alert(`Farmer Sign In - Email: ${farmerEmail}`);
@@ -87,6 +93,33 @@ export default function ZavunoPlatform() {
     else if (query.includes("tomato")) advice = adviceDatabase.tomato;
 
     setAiAdvice(advice);
+  };
+
+  const handleUploadProduce = () => {
+    if (!produceName.trim() || !produceQuantity || !producePrice) {
+      alert("Please fill in all required fields (Name, Quantity, Price)");
+      return;
+    }
+
+    const newProduce = {
+      id: Date.now(),
+      name: produceName,
+      quantity: produceQuantity,
+      price: producePrice,
+      description: produceDescription,
+      image:
+        produceImage ||
+        "https://images.unsplash.com/photo-1488459716781-8c63cc00022b?q=80&w=400&auto=format&fit=crop",
+      uploadedDate: new Date().toLocaleDateString(),
+    };
+
+    setProduceListings([newProduce, ...produceListings]);
+    setProduceName("");
+    setProduceQuantity("");
+    setProducePrice("");
+    setProduceDescription("");
+    setProduceImage("");
+    alert("✅ Your produce has been listed successfully!");
   };
 
   return (
@@ -217,6 +250,159 @@ export default function ZavunoPlatform() {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-yellow-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-yellow-800 mb-4">
+            🥬 Farmer's Marketplace - Sell Your Produce
+          </h2>
+          <p className="text-center text-gray-600 mb-12 text-lg">
+            Upload your fresh produce and connect directly with buyers across
+            Africa
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white rounded-3xl p-10 shadow-lg">
+              <h3 className="text-2xl font-bold text-yellow-700 mb-6">
+                📤 Upload Your Produce
+              </h3>
+
+              <input
+                type="text"
+                placeholder="Product Name (e.g., Maize, Tomatoes, Beans)"
+                value={produceName}
+                onChange={(e) => setProduceName(e.target.value)}
+                className="w-full p-4 rounded-xl border-2 border-yellow-300 mb-4"
+              />
+
+              <input
+                type="number"
+                placeholder="Quantity (in kg)"
+                value={produceQuantity}
+                onChange={(e) => setProduceQuantity(e.target.value)}
+                className="w-full p-4 rounded-xl border-2 border-yellow-300 mb-4"
+              />
+
+              <input
+                type="number"
+                placeholder="Price per Unit (UGX)"
+                value={producePrice}
+                onChange={(e) => setProducePrice(e.target.value)}
+                className="w-full p-4 rounded-xl border-2 border-yellow-300 mb-4"
+              />
+
+              <textarea
+                placeholder="Product Description (quality, freshness, etc.)"
+                value={produceDescription}
+                onChange={(e) => setProduceDescription(e.target.value)}
+                className="w-full p-4 rounded-xl border-2 border-yellow-300 mb-4 h-24 resize-none"
+              />
+
+              <input
+                type="url"
+                placeholder="Image URL (optional - leave blank for default)"
+                value={produceImage}
+                onChange={(e) => setProduceImage(e.target.value)}
+                className="w-full p-4 rounded-xl border-2 border-yellow-300 mb-4"
+              />
+
+              <button
+                onClick={handleUploadProduce}
+                className="w-full bg-yellow-600 text-white py-4 rounded-xl font-semibold hover:bg-yellow-700 transition"
+              >
+                ✅ List Produce for Sale
+              </button>
+            </div>
+
+            <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-3xl p-10 shadow-lg">
+              <h3 className="text-2xl font-bold text-orange-800 mb-4">
+                💡 Why Sell on Zavuno?
+              </h3>
+              <div className="space-y-3 text-gray-800">
+                <p className="flex items-start">
+                  <span className="text-2xl mr-3">✓</span>
+                  <span>
+                    <strong>Direct Buyer Access:</strong> Connect with serious
+                    buyers without middlemen
+                  </span>
+                </p>
+                <p className="flex items-start">
+                  <span className="text-2xl mr-3">✓</span>
+                  <span>
+                    <strong>Fair Prices:</strong> You control the price of your
+                    produce
+                  </span>
+                </p>
+                <p className="flex items-start">
+                  <span className="text-2xl mr-3">✓</span>
+                  <span>
+                    <strong>Instant Reach:</strong> Farmers, businesses, and
+                    restaurants find your products
+                  </span>
+                </p>
+                <p className="flex items-start">
+                  <span className="text-2xl mr-3">✓</span>
+                  <span>
+                    <strong>Safe Payments:</strong> Mobile money payments with
+                    protection
+                  </span>
+                </p>
+                <p className="flex items-start">
+                  <span className="text-2xl mr-3">✓</span>
+                  <span>
+                    <strong>Transportation:</strong> Easy access to trusted
+                    transporters
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {produceListings.length > 0 && (
+            <div className="mt-12">
+              <h3 className="text-3xl font-bold text-yellow-800 mb-8">
+                📦 Active Listings ({produceListings.length})
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {produceListings.map((produce) => (
+                  <div
+                    key={produce.id}
+                    className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:scale-105"
+                  >
+                    <img
+                      src={produce.image}
+                      alt={produce.name}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-6">
+                      <h4 className="text-xl font-bold text-green-700 mb-2">
+                        {produce.name}
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-4">
+                        {produce.description}
+                      </p>
+                      <div className="space-y-2 mb-4">
+                        <p className="text-lg font-semibold text-yellow-700">
+                          💰 UGX {produce.price}/unit
+                        </p>
+                        <p className="text-gray-700">
+                          📊 Available: {produce.quantity}kg
+                        </p>
+                        <p className="text-gray-500 text-sm">
+                          Listed: {produce.uploadedDate}
+                        </p>
+                      </div>
+                      <button className="w-full bg-green-700 text-white py-2 rounded-lg font-semibold hover:bg-green-800 transition">
+                        💬 Contact Buyer
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
