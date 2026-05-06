@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "recommendations": [
     "tabnine.tabnine-vscode",
     "ms-azuretools.vscode-azure-github-copilot",
@@ -11,6 +12,9 @@
     "cweijan.vscode-database-client2",
     "thearche.git-lfs-file-locker"
   ]
+=======
+  "recommendations": ["tabnine.tabnine-vscode"]
+>>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
 =======
   "recommendations": ["tabnine.tabnine-vscode"]
 >>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7

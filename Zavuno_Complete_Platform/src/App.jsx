@@ -16,12 +16,15 @@ export default function ZavunoPlatform() {
   const [aiQuery, setAiQuery] = useState("");
   const [aiAdvice, setAiAdvice] = useState("");
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [produceName, setProduceName] = useState("");
   const [produceQuantity, setProduceQuantity] = useState("");
   const [producePrice, setProducePrice] = useState("");
   const [produceDescription, setProduceDescription] = useState("");
   const [produceImage, setProduceImage] = useState("");
   const [produceListings, setProduceListings] = useState([]);
+=======
+>>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
 =======
 >>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
 
@@ -99,6 +102,7 @@ export default function ZavunoPlatform() {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const handleUploadProduce = () => {
     if (!produceName.trim() || !produceQuantity || !producePrice) {
       alert("Please fill in all required fields (Name, Quantity, Price)");
@@ -126,6 +130,8 @@ export default function ZavunoPlatform() {
     alert("✅ Your produce has been listed successfully!");
   };
 
+=======
+>>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
 =======
 >>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
   return (
@@ -259,6 +265,7 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
       <section className="py-20 bg-yellow-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -413,6 +420,8 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
+=======
+>>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
 =======
 >>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
       <section className="py-20 bg-green-50">
