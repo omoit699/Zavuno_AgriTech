@@ -15,18 +15,12 @@ export default function ZavunoPlatform() {
   const [weatherData, setWeatherData] = useState(null);
   const [aiQuery, setAiQuery] = useState("");
   const [aiAdvice, setAiAdvice] = useState("");
-<<<<<<< HEAD
-<<<<<<< HEAD
   const [produceName, setProduceName] = useState("");
   const [produceQuantity, setProduceQuantity] = useState("");
   const [producePrice, setProducePrice] = useState("");
   const [produceDescription, setProduceDescription] = useState("");
   const [produceImage, setProduceImage] = useState("");
   const [produceListings, setProduceListings] = useState([]);
-=======
->>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
-=======
->>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
 
   const handleFarmerSignIn = () => {
     alert(`Farmer Sign In - Email: ${farmerEmail}`);
@@ -101,8 +95,6 @@ export default function ZavunoPlatform() {
     setAiAdvice(advice);
   };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   const handleUploadProduce = () => {
     if (!produceName.trim() || !produceQuantity || !producePrice) {
       alert("Please fill in all required fields (Name, Quantity, Price)");
@@ -130,24 +122,41 @@ export default function ZavunoPlatform() {
     alert("✅ Your produce has been listed successfully!");
   };
 
-=======
->>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
-=======
->>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
       <header className="bg-green-800 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold">Zavuno</h1>
             <p className="text-sm text-green-100">
               Empowering Farmers, Changing Lives.
             </p>
           </div>
+          <nav className="flex flex-wrap gap-4 text-sm md:text-base">
+            <a href="#home" className="hover:text-yellow-200">
+              Home
+            </a>
+            <a href="#signin" className="hover:text-yellow-200">
+              Sign In
+            </a>
+            <a href="#marketplace" className="hover:text-yellow-200">
+              Marketplace
+            </a>
+            <a href="#weather" className="hover:text-yellow-200">
+              Weather
+            </a>
+            <a href="#advice" className="hover:text-yellow-200">
+              AI Advice
+            </a>
+            <a href="#contact" className="hover:text-yellow-200">
+              Contact
+            </a>
+          </nav>
         </div>
       </header>
 
       <section
+        id="home"
         className="relative bg-cover bg-center h-[90vh] flex items-center"
         style={{
           backgroundImage:
@@ -168,7 +177,7 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
-      <section className="bg-white py-20">
+      <section id="signin" className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-green-800">
             Sign Into Zavuno
@@ -265,9 +274,7 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <section className="py-20 bg-yellow-50">
+      <section id="marketplace" className="py-20 bg-yellow-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-yellow-800 mb-4">
             🥬 Farmer's Marketplace - Sell Your Produce
@@ -420,10 +427,6 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
-=======
->>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
-=======
->>>>>>> 6bb8cce5db1e3d6e3050ce7bf724dc65f7234fe7
       <section className="py-20 bg-green-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-center text-green-800 mb-4">
@@ -628,7 +631,7 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-100">
+      <section id="payments" className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-green-800">
             Mobile Money Payments
@@ -670,7 +673,7 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
-      <section className="py-20 bg-blue-50">
+      <section id="weather" className="py-20 bg-blue-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-blue-800 mb-4">
             🌤️ Weather Forecast for Farming
@@ -727,7 +730,10 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-r from-amber-50 to-orange-50">
+      <section
+        id="advice"
+        className="py-20 bg-gradient-to-r from-amber-50 to-orange-50"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-bold text-orange-800 mb-4">
             🤖 AI Agricultural Advice
@@ -778,7 +784,7 @@ export default function ZavunoPlatform() {
         </div>
       </section>
 
-      <footer className="bg-black text-white py-16">
+      <footer id="contact" className="bg-black text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
           <h3 className="text-2xl font-bold">Contact Information</h3>
 
